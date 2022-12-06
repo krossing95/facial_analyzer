@@ -222,7 +222,7 @@ def plTemplate(link):
 																			<p style="margin: 0; font-size: 12px; mso-line-height-alt: 24px;">
 																				<span style="font-size:16px;">We have received your request to alter your password. Please click on the link below to execute the action.
 																				</span> <br />
-																				<b>Due to security reasons, the link is only usable within 30 minutes. If you do not intend to receive this message, quickly log into your account and change password to a stronger one, as someone may have guessed your credentials.</b>
+																				<b>Due to security reasons, the link is only usable within 30 minutes. If you do not expect to receive this message, quickly log into your account and change password to a stronger one, as someone may have guessed your credentials.</b>
 																			</p>
 																		</div>
 																	</div>

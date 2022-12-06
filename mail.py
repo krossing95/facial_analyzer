@@ -29,18 +29,20 @@ def transitAccVerification(receiver, subject, link, name):
             return sent
         except:
             return False
-# def mailPl(receiver, subject, link, name):
-# 	template = plTemplate(link=link)
-# 	msg['From'] = formataddr(('Smart Attendance System Team', FROM))
-# 	msg['To']= formataddr((name, receiver))
-# 	msg['Subject']= subject
-# 	msg.attach(MIMEText(template, "html"))
-# 	messageBody = msg.as_string()
-# 	SSLcontext = ssl.create_default_context()
-# 	with smtplib.SMTP(SERVER, PORT) as server:
-# 		server.starttls(context=SSLcontext)
-# 		server.login(user = FROM, password = PASSWORD)
-# 		try:
-# 			return server.sendmail(FROM, receiver, messageBody)
-# 		except:
-# 			return False
+
+
+def transitPasswordRecoveryLink(receiver, subject, link, name):
+    template = plTemplate(link=link)
+    msg['From'] = formataddr(('Smart Attendance System Team', FROM))
+    msg['To'] = formataddr((name, receiver))
+    msg['Subject'] = subject
+    msg.attach(MIMEText(template, "html"))
+    messageBody = msg.as_string()
+    SSLcontext = ssl.create_default_context()
+    with smtplib.SMTP(SERVER, PORT) as server:
+        server.starttls(context=SSLcontext)
+        server.login(user=FROM, password=PASSWORD)
+        try:
+            return server.sendmail(FROM, receiver, messageBody)
+        except:
+            return False

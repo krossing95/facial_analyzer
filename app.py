@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from face_analyzer import personVerifier, verifyImageExistence
-from mail import transitAccVerification
+from mail import transitAccVerification, transitPasswordRecoveryLink
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -50,6 +50,19 @@ def sendAccountVerificationLink():
     if (len(receiver) == 0 or len(subject) == 0 or len(link) == 0 or len(name) == 0):
         return jsonify(message=False)
     linkSent = transitAccVerification(receiver, subject, link, name)
+    if (linkSent != False):
+        return jsonify(message=True)
+    else:
+        return jsonify(message=False)
+
+
+@app.route('{}transit/pl'.format(ROUTE_PREFIX), methods=['POST'])
+def sendPasswordRecoveryLink():
+    data = request.get_json()
+    receiver, subject, link, name = data['receiver'], data['subject'], data['link'], data['name']
+    if (len(receiver) == 0 or len(subject) == 0 or len(link) == 0 or len(name) == 0):
+        return jsonify(message=False)
+    linkSent = transitPasswordRecoveryLink(receiver, subject, link, name)
     if (linkSent != False):
         return jsonify(message=True)
     else:
