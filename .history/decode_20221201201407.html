@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="myTextarea" cols="30" rows="10" placeholder="input "></textarea>
+    <button onclick="decode()">decode</button>
+    <script>
+        const decoder = (base64string) => {
+            return (
+                decodeURIComponent(atob(base64string).split("").map((c) => {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+                }).join(""))
+            )
+        }
+
+        const decode = () => {
+            const base64string = document.getElementById("myTextarea").value;
+            const newValue = base64string.substring(base64string.indexOf(',') + 1)
+            console.log(decoder(newValue));
+        }
+    </script>
+</body>
+
+</html>

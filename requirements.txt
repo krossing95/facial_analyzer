@@ -1,0 +1,12 @@
+gunicorn
+flask
+flask_cors
+deepface
+retinaface
+base64
+os
+smtplib
+ssl
+email.mime.text
+email.mime.multipart
+email.utils
