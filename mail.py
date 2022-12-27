@@ -6,8 +6,8 @@ import smtplib
 import ssl
 
 SERVER = "smtp.office365.com"
-FROM = "explicitserver95@hotmail.com"
-PASSWORD = "Krossing@1995"
+FROM = ""
+PASSWORD = ""
 PORT = 587
 msg = MIMEMultipart()
 
